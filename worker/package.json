@@ -1,0 +1,21 @@
+{
+  "name": "complex-node-deployment-worker",
+  "description": "Complex node deployment - worker",
+  "version": "1.0.0",
+  "author": "Bram Borggreve <borggreve@gmail.com> (http://github.com/beeman)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/beeman/complex-node-deployment"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "docker": "docker build -t complex-worker . && docker run -p 10083:3000 -i -t complex-worker"
+  },
+  "dependencies": {
+    "cors": "^2.5.3",
+    "express": "3.4.8",
+    "express-ping": "https://github.com/beeman/express-ping/tarball/master"
+  }
+}

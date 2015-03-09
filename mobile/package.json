@@ -1,0 +1,21 @@
+{
+  "name": "complex-node-deployment-mobile",
+  "description": "Complex node deployment - mobile",
+  "version": "1.0.0",
+  "author": "Bram Borggreve <borggreve@gmail.com> (http://github.com/beeman)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/beeman/complex-node-deployment"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "docker": "docker build -t complex-mobile . && docker run -p 10080:3000 -i -t complex-mobile"
+  },
+  "dependencies": {
+    "cors": "^2.5.3",
+    "express": "3.4.8",
+    "express-ping": "https://github.com/beeman/express-ping/tarball/master"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "complex-node-deployment-admin",
+  "description": "Complex node deployment - admin",
+  "version": "1.0.0",
+  "author": "Bram Borggreve <borggreve@gmail.com> (http://github.com/beeman)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/beeman/complex-node-deployment"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "docker": "docker build -t complex-admin . && docker run -p 10082:8080 -i -t complex-admin"
+  },
+  "dependencies": {
+    "cors": "^2.5.3",
+    "express": "3.4.8",
+    "express-ping": "https://github.com/beeman/express-ping/tarball/master"
+  }
+}

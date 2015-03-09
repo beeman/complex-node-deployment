@@ -1,0 +1,58 @@
+admin:
+  build: ./admin
+  ports:
+    - "10078:3000"
+  links:
+    - api
+api:
+  build: ./api
+  ports:
+    - "10079:3000"
+  links:
+    - mongodb
+    - redis
+mobile:
+  build: ./mobile
+  ports:
+    - "10081:3000"
+  links:
+    - api
+mongodb:
+  build: ./mongodb
+  ports:
+    - "10069:27017"
+  volumes:
+    - mongodb/data:/data
+redis:
+  build: ./redis
+  ports:
+    - "10068:6379"
+site:
+  build: ./site
+  ports:
+    - "10080:8080"
+  links:
+    - api
+static:
+  build: ./static
+  ports:
+    - "10082:8080"
+worker:
+  build: ./worker
+  ports:
+    - "10077:3000"
+  links:
+    - api
+status:
+  build: ./status
+  ports:
+    - "10083:3000"
+  links:
+    - api
+    - admin
+    - redis
+    - mongodb
+    - mobile
+    - site
+    - static
+    - worker
